@@ -10,7 +10,7 @@ export default class AuthService {
     login(username, password) {
         
         // Get a token
-        return this.fetch(`http://api.nxthrm.local/api/login?email=${username}&password=${password}`, {
+        return this.fetch(`http://api.ldeq.local/login?username=${username}&password=${password}`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
