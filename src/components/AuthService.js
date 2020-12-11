@@ -1,7 +1,6 @@
 import decode from 'jwt-decode';
 export default class AuthService {
-    constructor(domain) {
-        this.domain = domain || 'http://api.nxthrm.local'
+    constructor() {
         this.fetch = this.fetch.bind(this)
         this.login = this.login.bind(this)
         this.getProfile = this.getProfile.bind(this)
@@ -18,7 +17,9 @@ export default class AuthService {
                 password
             })
         }).then(res => {
-            this.setToken(res.token)
+            this.setToken(res.token);
+            localStorage.setItem('user', res);
+            localStorage.setItem('token', res.token);
             return Promise.resolve(res);
         })
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Projects from './Projects';
 import registerServiceWorker from './registerServiceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ import Login from './components/Login';
 ReactDOM.render(
     <Router>
         <div>
-            <Route exact path="/" component={App} />
+            <Route exact path="/" component={Projects} />
             <Route exact path="/login" component={Login} />
         </div>
     </Router>
