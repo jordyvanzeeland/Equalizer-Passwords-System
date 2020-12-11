@@ -47,3 +47,24 @@ h1{
 .btn-delete{
     color:#ff0000;
 }
+
+#DataTable_length, #DataTable_filter, #DataTable_info, #DataTable_paginate{
+    font-size: 13px;
+}
+
+#DataTable_filter input{
+    background:#ffffff;
+}
+
+#DataTable_length select{
+    background:#ffffff;
+    margin-bottom:15px;
+}
+
+#DataTable_paginate{
+    margin-bottom:20px;
+}
+
+#DataTable_info, #DataTable_paginate{
+    margin-top: 15px;
+}
