@@ -16,8 +16,6 @@ class Header extends Component {
     var getUser = localStorage.getItem('user');
     var token = localStorage.getItem('token');
 
-    console.log(getUser, token);
-
     return (
       <div className="App">
         <div class="header">
@@ -32,8 +30,8 @@ class Header extends Component {
         <div class="bottom-navbar">
             <div class="container">
             <ul>
-                <li>Projecten</li>
-                <li>Systemen</li>
+                <li><a href="/">Projecten</a></li>
+                <li><a href="/systems">Systemen</a></li>
                 <li style={{ float: 'right' }} onClick={this.handleLogout.bind(this)}>Uitloggen</li>
             </ul>
             </div>

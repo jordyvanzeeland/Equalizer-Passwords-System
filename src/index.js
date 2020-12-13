@@ -8,11 +8,13 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 // Our Components
 import Login from './components/Login';
+import Systems from './Systems';
 
 ReactDOM.render(
     <Router>
         <div>
             <Route exact path="/" component={Projects} />
+            <Route exact path="/systems" component={Systems} />
             <Route exact path="/login" component={Login} />
         </div>
     </Router>
