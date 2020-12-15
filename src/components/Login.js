@@ -15,27 +15,27 @@ class Login extends Component {
     }
     render() {
         return (
-            <div className="center">
+            <div className="center" style={{background: 'url(/login_bg.png)'}}>
                 <div className="card">
-                    <h1>Login</h1>
+                    <img src="/logo.png" alt="logo" />
                     <form onSubmit={this.handleFormSubmit}>
                         <input
                             className="form-item"
-                            placeholder="Username goes here..."
+                            placeholder="Gebruikersnaam"
                             name="username"
                             type="text"
                             onChange={this.handleChange}
                         />
                         <input
                             className="form-item"
-                            placeholder="Password goes here..."
+                            placeholder="Wachtwoord"
                             name="password"
                             type="password"
                             onChange={this.handleChange}
                         />
                         <input
                             className="form-submit"
-                            value="SUBMIT"
+                            value="Inloggen"
                             type="submit"
                         />
                     </form>

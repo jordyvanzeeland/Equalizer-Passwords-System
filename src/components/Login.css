@@ -1,20 +1,36 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
 .center{
-    font-family: 'Raleway', sans-serif;
-    background-color: #1abc9c;
     position: absolute;
     height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-position: left !important;
 }
 
 .card{
+    background: transparent;
+    border: none;
+    width: 440px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+}
+
+.card img{
+    width:50%;
+    margin-bottom:20px;
+}
+
+.card > form{
     background-color: #fff;
-    border-radius: 15px;
-    padding: 0.8rem;
+    border-radius: 0;
+    padding: 20px;
+    width:440px;
+
 }
 
 .card > form{
@@ -29,23 +45,24 @@
 }
 
 .form-item{
-    font-family: 'Raleway', sans-serif;
-    padding: 5px;
-    margin-bottom: 2rem;
-    height: 30px;
-    width: 16rem;
-    border: 1px solid grey;
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    height: 40px;
+    width: 400px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    font-weight: 300;
 }
 
 .form-submit{
-    font-family: 'Raleway', sans-serif;
-    height: 35px;
+    height: 40px;
     color: #fff;
-    background-color: #1abc9c;
+    background-image: linear-gradient(90deg,#0b667c 0%,#35bcae 100%);
     border: none;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     transition: 0.3s opacity ease;
     cursor: pointer;
+    font-size: 13px;
 }
 .form-submit:hover{
    opacity: 0.6;

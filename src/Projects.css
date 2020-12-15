@@ -68,3 +68,44 @@ h1{
 #DataTable_info, #DataTable_paginate{
     margin-top: 15px;
 }
+
+.project{
+    background:#ffffff;
+    padding: 20px 40px;
+    margin-top: 50px;
+}
+
+.project h1{
+    font-size: 20px;
+    font-weight: 400;
+    color: #212529;
+    letter-spacing: 0;
+    margin-bottom:0;
+}
+
+.project span{
+    font-size: 12px;
+    color: #98A4B8;
+    margin: 5px 0 30px 0;
+    display: block;
+}
+
+.project table{
+    margin-top:20px;
+}
+
+.project table tr td{
+    color: #777777;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.project table tr td:first-child{
+    width:300px;
+    padding: 5px 0;
+}
+
+.project i{
+    color: #0e2845;
+    margin-right:5px;
+}

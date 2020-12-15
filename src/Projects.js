@@ -20,7 +20,7 @@ class Projects extends Component {
     fetch('http://api.ldeq.local/projects', { 
         method: 'GET', 
         headers: new Headers({
-          'Authorization': 'Basic '+btoa('username:password'), 
+          'Authorization': 'bearer' + localStorage.getItem('token'), 
           'Content-Type': 'application/x-www-form-urlencoded'
         })
       })
@@ -62,7 +62,7 @@ class Projects extends Component {
               {this.state.projects.map((project, i) => {
                 return(
                 <tr valign="middle">
-                    <td>
+                    <td onClick={() => window.location.href = `/project/${project.Id}`}>
                       {project.ProjectName}
                       <span class="projectSubtitle">{project.ProjectUrl}</span>
                     </td>
