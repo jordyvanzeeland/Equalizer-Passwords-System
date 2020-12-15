@@ -109,9 +109,38 @@ class ProjectDetails extends Component {
             </div>
           
         </div>
+
+        <div class="col-md-4">
+
+            <div class="notes">
+
+            <div class="note">
+                <div class="btn btn-warning">Gegevens wijzigen</div>
+                <div class="btn btn-danger">Verwijder project</div>
+                <div class="btn btn-info">Ga naar website</div>
+            </div>
+
+            {/* <div class="note">
+                <strong>Titel van de notitie</strong>
+                <p>Dit is de inhoud van de notitie</p>
+            </div>
+
+            <div class="note">
+                <strong>Titel van de notitie</strong>
+                <p>Dit is de inhoud van de notitie</p>
+            </div>
+
+            <div class="note">
+                <strong>Titel van de notitie</strong>
+                <p>Dit is de inhoud van de notitie</p>
+            </div> */}
+
+            </div>
+
+        </div>
         </div>
         
-        <div class="col-md-4"></div>
+        
         </div>
         
       </div>

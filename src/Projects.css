@@ -73,6 +73,7 @@ h1{
     background:#ffffff;
     padding: 20px 40px;
     margin-top: 50px;
+    margin-bottom:50px;
 }
 
 .project h1{
@@ -108,4 +109,27 @@ h1{
 .project i{
     color: #0e2845;
     margin-right:5px;
+}
+
+.notes{
+    margin-top:50px;
+}
+
+.note{
+    background:#ffffff;
+    padding: 20px 20px;
+    margin-bottom:20px;
+}
+
+.note p{
+    margin:0;
+    color: #777777;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.note strong{
+    font-size: 16px;
+    font-weight: 400;
+    color: #212529;
 }
