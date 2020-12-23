@@ -17,10 +17,66 @@ class ProjectDetails extends Component {
     }
   }
 
+  checkPasswordStrength(password, meter){
+
+    console.log(password, meter);
+
+    if (typeof password == 'undefined') {
+        password = '';
+    }
+
+    var ftpbar = $("#" + meter);
+
+    var ftpstrength = 0;
+
+    if (password.match(/[a-z]+/)){
+        ftpstrength+=1;
+    }
+    if (password.match(/[A-Z]+/)){
+        ftpstrength+=1;
+    }
+    if (password.match(/[0-9]+/)){
+        ftpstrength+=1;
+    }
+    if (password.match(/[$@#&!]+/)){
+        ftpstrength+=1;
+    }
+
+    console.log(ftpbar);
+
+    switch(ftpstrength){
+    case 0:
+        ftpbar.val(0);
+        ftpbar.addClass('passSecureRed');
+        break;
+
+    case 1:
+        ftpbar.val(25);
+        ftpbar.addClass('passSecureRed');
+        break;
+
+    case 2:
+        ftpbar.val(50);
+        ftpbar.addClass('passSecureOrange');
+        break;
+
+    case 3:
+        ftpbar.val(75);
+        ftpbar.addClass('passSecureYellow');
+        break;
+
+    case 4:
+        ftpbar.val(100);
+        ftpbar.addClass('passSecureGreen');
+        break; 
+    }
+
+  }
+
   componentDidMount(){
 
     console.log(this.props.match);
-    fetch(`http://api.ldeq.local/projects/${this.props.match.params.id}`, { 
+    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -38,7 +94,9 @@ class ProjectDetails extends Component {
 
   render() {
 
-    console.log(this.state);
+    this.checkPasswordStrength(this.state.project.FtpPass, 'ftpmeter');
+    this.checkPasswordStrength(this.state.project.DbPass, 'dbmeter');
+    this.checkPasswordStrength(this.state.project.WpPass, 'wpmeter');
 
     return (
       <div className="App">
@@ -48,12 +106,27 @@ class ProjectDetails extends Component {
         
         <div class="row">
 
-            <div class="col-md-8">
+        <div class="col-md-4">
 
-        <div class="project">
+        <div class="notes">
+
+        <div class="note">
 
         <h1>{this.state.project.ProjectName}</h1>
         <span>{this.state.project.ProjectUrl}</span>
+
+        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300'}} href="#"><i class="fas fa-edit"></i> Gegevens wijzigen</a>
+        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-trash-alt"></i> Verwijder project</a>
+        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-external-link-alt"></i> Bezoek website</a>
+        </div>
+
+        </div>
+
+        </div>
+
+            <div class="col-md-8">
+
+        <div class="project">
 
                 <div class="data_block ftp_info" style={{ background: '#ffffff', marginBottom: '20px'}}>
                     <i class="fas fa-server"></i> FTP Gegevens
@@ -68,7 +141,7 @@ class ProjectDetails extends Component {
                         </tr>
                         <tr>
                             <td>FTP Wachtwoord</td>
-                            <td>{this.state.project.FtpPass}</td>
+                            <td>{this.state.project.FtpPass} <progress class="progressBar" max="100" value="0" id="ftpmeter"></progress></td>
                         </tr>
                     </table>
                 </div>
@@ -87,7 +160,7 @@ class ProjectDetails extends Component {
                         </tr>
                         <tr>
                             <td>Database Wachtwoord</td>
-                            <td>{this.state.project.DbPass}</td>
+                            <td>{this.state.project.DbPass} <progress class="progressBar" max="100" value="0" id="dbmeter"></progress></td>
                         </tr>
                     </table>
                 </div>
@@ -102,41 +175,12 @@ class ProjectDetails extends Component {
                         </tr>
                         <tr>
                             <td>Wordpress Wachtwoord</td>
-                            <td>{this.state.project.WpPass}</td>
+                            <td>{this.state.project.WpPass} <progress class="progressBar" max="100" value="0" id="wpmeter"></progress></td>
                         </tr>
                     </table>
                 </div>
             </div>
           
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="notes">
-
-            <div class="note">
-                <div class="btn btn-warning">Gegevens wijzigen</div>
-                <div class="btn btn-danger">Verwijder project</div>
-                <div class="btn btn-info">Ga naar website</div>
-            </div>
-
-            {/* <div class="note">
-                <strong>Titel van de notitie</strong>
-                <p>Dit is de inhoud van de notitie</p>
-            </div>
-
-            <div class="note">
-                <strong>Titel van de notitie</strong>
-                <p>Dit is de inhoud van de notitie</p>
-            </div>
-
-            <div class="note">
-                <strong>Titel van de notitie</strong>
-                <p>Dit is de inhoud van de notitie</p>
-            </div> */}
-
-            </div>
-
         </div>
         </div>
         

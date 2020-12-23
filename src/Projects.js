@@ -16,6 +16,26 @@ class Projects extends Component {
     }
   }
 
+  deleteProject(event, projectID){
+
+    var table = $('#DataTable').DataTable();
+    var Row = $(event.target).closest('tr');
+
+    fetch(`http://api.ldeq.local/project/${projectID}/delete`, { 
+        method: 'DELETE', 
+        headers: new Headers({
+          'Authorization': 'bearer' + localStorage.getItem('token'), 
+          'Content-Type': 'application/x-www-form-urlencoded'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        table.row( Row ).remove().draw();
+      })
+
+  }
+
   componentDidMount(){
     fetch('http://api.ldeq.local/projects', { 
         method: 'GET', 
@@ -42,8 +62,6 @@ class Projects extends Component {
   }
 
   render() {
-
-    console.log(this.getToken);
     return (
       <div className="App">
         <Header />
@@ -71,7 +89,7 @@ class Projects extends Component {
                     </td>
                     <td style={{ textAlign:'right' }}>
                     <div class="notes"><i class="far fa-sticky-note"></i> 5</div>
-                    <i class="btn-delete fas fa-trash-alt"></i>
+                    <i onClick={(event) => { this.deleteProject(event, project.Id) }} class="btn-delete fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 )

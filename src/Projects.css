@@ -35,6 +35,15 @@ h1{
 .notes{
     display: inline-block;
     margin-right: 15px;
+    width:100%;
+}
+
+.note a{
+    margin-bottom:5px;
+}
+
+.note i{
+    margin-right:5px;
 }
 
 .active{
@@ -71,20 +80,21 @@ h1{
 
 .project{
     background:#ffffff;
-    padding: 20px 40px;
+    padding: 40px;
     margin-top: 50px;
     margin-bottom:50px;
 }
 
-.project h1{
+.project h1, .note h1{
     font-size: 20px;
     font-weight: 400;
     color: #212529;
     letter-spacing: 0;
     margin-bottom:0;
+    margin-top:0;
 }
 
-.project span{
+.project span, .note span{
     font-size: 12px;
     color: #98A4B8;
     margin: 5px 0 30px 0;
@@ -133,3 +143,33 @@ h1{
     font-weight: 400;
     color: #212529;
 }
+
+.progressBar{
+    float:right;
+}
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
+  }
+
+  progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+
+progress[value]::-webkit-progress-value {
+    background-image:
+         -webkit-linear-gradient(-45deg, 
+                                 transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                 rgba(0,0, 0, .1) 66%, transparent 66%),
+         -webkit-linear-gradient(top, 
+                                 rgba(255, 255, 255, .25), 
+                                 rgba(0, 0, 0, .25)),
+         -webkit-linear-gradient(left, #1a1732, #4f7273);
+  
+      border-radius: 2px; 
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+  }
