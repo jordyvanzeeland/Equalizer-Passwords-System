@@ -10,6 +10,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 // Our Components
 import Login from './components/Login';
 import Systems from './Systems';
+import SystemDetails from './SystemDetails';
 
 ReactDOM.render(
     <Router>
@@ -17,6 +18,7 @@ ReactDOM.render(
             <Route exact path="/" component={Projects} />
             <Route exact path="/project/:id" component={ProjectDetails} />
             <Route exact path="/systems" component={Systems} />
+            <Route exact path="/system/:id" component={SystemDetails} />
             <Route exact path="/login" component={Login} />
         </div>
     </Router>

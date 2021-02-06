@@ -173,3 +173,42 @@ progress[value]::-webkit-progress-value {
       border-radius: 2px; 
       background-size: 35px 20px, 100% 100%, 100% 100%;
   }
+
+.project_sec{
+    font-size: 35px;
+    color: #00ff00;
+    text-align: center;
+    border-radius: 100%;
+    border: solid 3px;
+    width: 100px;
+    height: 100px;
+    line-height: 93px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.modal{
+    background: rgba(0,0,0,0.2);
+    font-size: 14px;
+}
+
+.modal_content{
+    position: relative;
+    background:#ffffff;
+    width:600px;
+    margin: auto;
+    margin-top:100px;
+    padding:30px;
+}
+
+.modal .form-control{
+    font-size:14px;
+}
+
+.modal .close{
+    position: absolute;
+    right: 15px;
+    top:15px;
+    font-size:20px;
+}

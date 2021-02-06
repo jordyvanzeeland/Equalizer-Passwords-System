@@ -16,6 +16,31 @@ class Projects extends Component {
     }
   }
 
+  addProject(event){
+
+    event.preventDefault();
+
+    var table = $('#DataTable').DataTable();
+    var projectname = event.target.projectname.value;
+    var projecturl = event.target.projecturl.value;
+
+    fetch(`http://api.ldeq.local/projects/new`, { 
+        method: 'POST', 
+        headers: new Headers({
+          'Authorization': 'bearer' + localStorage.getItem('token'), 
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'projectname': projectname,
+          'projecturl': projecturl
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        //$('.modal').hide();
+        window.location.reload();
+      })
+
+  }
+
   deleteProject(event, projectID){
 
     var table = $('#DataTable').DataTable();
@@ -62,11 +87,21 @@ class Projects extends Component {
   }
 
   render() {
+
+    $('.btn-add').on('click', function(){
+      $('.modal').show();
+    })
+
+    $('.modal .close').on('click', function(){
+      $('.modal').hide();
+    })
+
     return (
       <div className="App">
         <Header />
         
         <div class="container">
+          <div class="btn btn-add" style={{ float: 'right', background: '#4f7273', color: '#ffffff', fontSize: '14px', fontWeight: '200' }}>Toevoegen</div>
           <h1>Projecten</h1>
           <table id="DataTable" class="table nowrap">
             <thead>
@@ -80,16 +115,16 @@ class Projects extends Component {
               {this.state.projects.map((project, i) => {
                 return(
                 <tr valign="middle">
-                    <td onClick={() => window.location.href = `/project/${project.Id}`}>
-                      {project.ProjectName}
-                      <span class="projectSubtitle">{project.ProjectUrl}</span>
+                    <td onClick={() => window.location.href = `/project/${project.id}`}>
+                      {project.projectname}
+                      <span class="projectSubtitle">{project.projecturl}</span>
                     </td>
                     <td>
         
                     </td>
                     <td style={{ textAlign:'right' }}>
-                    <div class="notes"><i class="far fa-sticky-note"></i> 5</div>
-                    <i onClick={(event) => { this.deleteProject(event, project.Id) }} class="btn-delete fas fa-trash-alt"></i>
+                    {/* <div class="notes"><i class="far fa-sticky-note"></i> 5</div> */}
+                    <i onClick={(event) => { this.deleteProject(event, project.id) }} class="btn-delete fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 )
@@ -97,6 +132,23 @@ class Projects extends Component {
                 
             </tbody>
           </table>
+        </div>
+
+        <div class="modal">
+              <div class="modal_content">
+              <i class="close fas fa-times-circle"></i>
+            <form onSubmit={(event) => this.addProject(event)}>
+            <div class="form-group">
+                <label for="projectname">Project naam</label>
+                <input type="text" name="projectname" class="form-control" id="projectname" aria-describedby="emailHelp" />
+            </div>
+            <div class="form-group">
+                <label for="projecturl">Project url</label>
+                <input type="text" name="projecturl" class="form-control" id="projecturl" />
+            </div>
+            <button style={{ background: '#4f7273', border: 'none', color: '#ffffff', fontSize: '14px', fontWeight: '200' }} type="submit" class="btn btn-primary">Toevoegen</button>
+            </form>
+            </div>
         </div>
         
       </div>

@@ -1,27 +1,22 @@
 import React, { Component } from 'react';
 import './Projects.css';
-import AuthService from './components/AuthService';
 import { withRouter } from "react-router";
 import Header from './components/Header';
-import withAuth from './components/withAuth';
 const $ = require('jquery');
-const Auth = new AuthService();
 $.DataTable = require('datatables.net');
 
-class ProjectDetails extends Component {
+class SystemDetails extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-        project: [],
+        system: [],
         passwords: []
     }
   }
 
   componentDidMount(){
-
-    console.log(this.props.match);
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}`, { 
+    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -29,15 +24,18 @@ class ProjectDetails extends Component {
         })
       })
       .then(response => response.json())
-      .then(project => {
+      .then(system => {
+        console.log(system);
         this.setState({
-          project: project.data,
-          passwords: project.passwords
+          system: system.data,
+          passwords: system.passwords
         })
       })
   }
 
   render() {
+
+    console.log(this.state);
 
     return (
       <div className="App">
@@ -53,12 +51,12 @@ class ProjectDetails extends Component {
 
         <div class="note">
 
-        <h1>{this.state.project.projectname}</h1>
-        <span>{this.state.project.projecturl}</span>
+        <h1>{this.state.system.system_name}</h1>
+        <span>{this.state.system.system_url}</span>
 
-        {/* <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300'}} href="#"><i class="fas fa-edit"></i> Gegevens wijzigen</a>
+        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300'}} href="#"><i class="fas fa-edit"></i> Gegevens wijzigen</a>
         <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-trash-alt"></i> Verwijder project</a>
-        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-external-link-alt"></i> Bezoek website</a> */}
+        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-external-link-alt"></i> Bezoek website</a>
         </div>
 
         </div>
@@ -105,4 +103,4 @@ class ProjectDetails extends Component {
   }
 }
 
-export default withRouter(ProjectDetails);
+export default withRouter(SystemDetails);
