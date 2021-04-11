@@ -21,6 +21,8 @@ class Systems extends Component {
     var table = $('#DataTable').DataTable();
     var systemname = event.target.systemname.value;
     var systemurl = event.target.systemurl.value;
+    var systemuser = event.target.systemuser.value;
+    var systempass = event.target.systempass.value;
 
     fetch(`http://api.ldeq.local/systems/new`, { 
         method: 'POST', 
@@ -28,7 +30,9 @@ class Systems extends Component {
           'Authorization': 'bearer' + localStorage.getItem('token'), 
           'Content-Type': 'application/x-www-form-urlencoded',
           'systemname': systemname,
-          'systemurl': systemurl
+          'systemurl': systemurl,
+          'systemuser': systemuser,
+          'systempass': systempass
         })
       })
       .then(response => response.json())
@@ -135,6 +139,16 @@ class Systems extends Component {
             <div class="form-group">
                 <label for="systemurl">Systeem url</label>
                 <input type="text" name="systemurl" class="form-control" id="systemurl" />
+            </div>
+
+            <div class="form-group">
+                <label for="systemuser">Gebruikernaam</label>
+                <input type="text" name="systemuser" class="form-control" id="systemuser" />
+            </div>
+
+            <div class="form-group">
+                <label for="systempass">Wachtwoord</label>
+                <input type="text" name="systempass" class="form-control" id="systempass" />
             </div>
             <button style={{ background: '#4f7273', border: 'none', color: '#ffffff', fontSize: '14px', fontWeight: '200' }} type="submit" class="btn btn-primary">Toevoegen</button>
             </form>

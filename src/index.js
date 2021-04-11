@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Systems from './Systems';
 import SystemDetails from './SystemDetails';
 import ProjectEdit from './ProjectEdit';
+import SystemEdit from './SystemEdit';
 
 ReactDOM.render(
     <Router>
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route exact path="/project/:id/edit" component={ProjectEdit} />
             <Route exact path="/systems" component={Systems} />
             <Route exact path="/system/:id" component={SystemDetails} />
+            <Route exact path="/system/:id/edit" component={SystemEdit} />
             <Route exact path="/login" component={Login} />
         </div>
     </Router>
