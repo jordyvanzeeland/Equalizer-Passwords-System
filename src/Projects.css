@@ -200,6 +200,8 @@ progress[value]::-webkit-progress-value {
     margin: auto;
     margin-top:100px;
     padding:30px;
+    overflow-y: scroll;
+    height:500px;
 }
 
 .modal .form-control{

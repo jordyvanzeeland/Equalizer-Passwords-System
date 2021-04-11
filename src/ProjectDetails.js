@@ -31,8 +31,7 @@ class ProjectDetails extends Component {
       .then(response => response.json())
       .then(project => {
         this.setState({
-          project: project.data,
-          passwords: project.passwords
+          project: project.data
         })
       })
   }
@@ -44,62 +43,72 @@ class ProjectDetails extends Component {
         <Header />
         
         <div class="container">
-        
-        <div class="row">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="notes">
+                <div class="note">
+                <h1>{this.state.project.ProjectName}</h1>
+                <span>{this.state.project.ProjectUrl}</span>
 
-        <div class="col-md-5">
-
-        <div class="notes">
-
-        <div class="note">
-
-        <h1>{this.state.project.projectname}</h1>
-        <span>{this.state.project.projecturl}</span>
-
-        {/* <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300'}} href="#"><i class="fas fa-edit"></i> Gegevens wijzigen</a>
-        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-trash-alt"></i> Verwijder project</a>
-        <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300' }} href="#"><i class="fas fa-external-link-alt"></i> Bezoek website</a> */}
-        </div>
-
-        </div>
-
-        </div>
-
-            <div class="col-md-7">
-
-        <div class="project">
-
-                    {this.state.passwords.map((password, i) =>{
-
-                        return(
-                            <div class="data_block ftp_info" style={{ background: '#ffffff', marginBottom: '20px'}}>
-                            <i class="fas fa-server"></i> {password.type} Gegevens
-                            <table width="100%">
-                            <tr>
-                                <td>{password.type} Host</td>
-                                <td>{password.host}</td>
-                            </tr>
-                            <tr>
-                                <td>{password.type} Gebruikersnaam</td>
-                                <td>{password.username}</td>
-                            </tr>
-                            <tr>
-                                <td>{password.type} Wachtwoord</td>
-                                <td>{password.password}</td>
-                            </tr>
-                            </table>
-                            </div>
-                        );
-
-                    })}
+                <a style={{ width: '100%', display: 'block', fontSize: '13px', fontWeight: '300'}} href={`/project/${this.props.match.params.id}/edit`}><i class="fas fa-edit"></i> Gegevens wijzigen</a>
+                </div>
+              </div>
             </div>
-          
-        </div>
-        </div>
-        
-        
-        </div>
-        
+            <div class="col-md-7">
+                <div class="project">
+                  <div class="data_block ftp_info" style={{ background: '#ffffff', marginBottom: '20px'}}>
+                    <i class="fas fa-server"></i> FTP Gegevens
+                    <table width="100%">
+                    <tr>
+                        <td>FTP Host</td>
+                        <td>{this.state.project.FtpHost}</td>
+                    </tr>
+                    <tr>
+                        <td>FTP Gebruikersnaam</td>
+                        <td>{this.state.project.FtpUser}</td>
+                    </tr>
+                    <tr>
+                        <td>FTP Wachtwoord</td>
+                        <td>{this.state.project.FtpPass}</td>
+                    </tr>
+                    </table>
+                  </div>
+
+                  <div class="data_block ftp_info" style={{ background: '#ffffff', marginBottom: '20px'}}>
+                    <i class="fas fa-server"></i> Database Gegevens
+                    <table width="100%">
+                    <tr>
+                        <td>Database Host</td>
+                        <td>{this.state.project.DbHost}</td>
+                    </tr>
+                    <tr>
+                        <td>Database Gebruikersnaam</td>
+                        <td>{this.state.project.DbUser}</td>
+                    </tr>
+                    <tr>
+                        <td>Database Wachtwoord</td>
+                        <td>{this.state.project.DbPass}</td>
+                    </tr>
+                    </table>
+                  </div>
+
+                  <div class="data_block ftp_info" style={{ background: '#ffffff', marginBottom: '20px'}}>
+                    <i class="fas fa-server"></i> Wordpress Gegevens
+                    <table width="100%">
+                    <tr>
+                        <td>Database Gebruikersnaam</td>
+                        <td>{this.state.project.WpUser}</td>
+                    </tr>
+                    <tr>
+                        <td>Database Wachtwoord</td>
+                        <td>{this.state.project.WpPass}</td>
+                    </tr>
+                    </table>
+                  </div>
+                </div> 
+            </div>
+          </div>
+        </div>    
       </div>
     );
   }

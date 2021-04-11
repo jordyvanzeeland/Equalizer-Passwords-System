@@ -33,7 +33,6 @@ class Systems extends Component {
       })
       .then(response => response.json())
       .then(data => {
-        //$('.modal').hide();
         window.location.reload();
       })
 

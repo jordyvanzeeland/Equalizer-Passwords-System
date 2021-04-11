@@ -11,12 +11,14 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import Login from './components/Login';
 import Systems from './Systems';
 import SystemDetails from './SystemDetails';
+import ProjectEdit from './ProjectEdit';
 
 ReactDOM.render(
     <Router>
         <div>
             <Route exact path="/" component={Projects} />
             <Route exact path="/project/:id" component={ProjectDetails} />
+            <Route exact path="/project/:id/edit" component={ProjectEdit} />
             <Route exact path="/systems" component={Systems} />
             <Route exact path="/system/:id" component={SystemDetails} />
             <Route exact path="/login" component={Login} />
