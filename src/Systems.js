@@ -78,9 +78,7 @@ class Systems extends Component {
         $('#DataTable').DataTable({
           "language": {
             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Dutch.json"
-          },
-          "aaSorting":[],
-          "order": []
+          }
         });
       })
   }
