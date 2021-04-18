@@ -130,7 +130,7 @@ class Projects extends Component {
               {this.state.projects.map((project, i) => {
                 return(
                 <tr valign="middle">
-                    <td onClick={() => window.location.href = `/project/${project.Id}`}>
+                    <td style={{ cursor: 'pointer' }} onClick={() => window.location.href = `/project/${project.Id}`}>
                       {project.ProjectName}
                       <span class="projectSubtitle">{project.ProjectUrl}</span>
                     </td>
