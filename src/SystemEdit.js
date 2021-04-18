@@ -26,7 +26,7 @@ class SystemEdit extends Component {
     var systemuser = event.target.systemuser.value;
     var systempass = event.target.systempass.value;
 
-    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}/update`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${this.props.match.params.id}/update`, { 
         method: 'PUT', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -47,7 +47,7 @@ class SystemEdit extends Component {
   componentDidMount(){
 
     console.log(this.props.match);
-    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 

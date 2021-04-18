@@ -9,7 +9,7 @@ export default class AuthService {
     login(username, password) {
         
         // Get a token
-        return this.fetch(`http://api.ldeq.local/login?username=${username}&password=${password}`, {
+        return this.fetch(`https://eqcpd-api.jordyvanzeeland.nl/login?username=${username}&password=${password}`, {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

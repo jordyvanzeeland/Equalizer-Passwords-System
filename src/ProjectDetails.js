@@ -23,7 +23,7 @@ class ProjectDetails extends Component {
 
     event.preventDefault();
 
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}/note/new`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${this.props.match.params.id}/note/new`, { 
         method: 'POST', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -44,7 +44,7 @@ class ProjectDetails extends Component {
 
     event.preventDefault();
 
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}/note/${noteid}/delete`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${this.props.match.params.id}/note/${noteid}/delete`, { 
         method: 'DELETE', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -60,7 +60,7 @@ class ProjectDetails extends Component {
 
   componentDidMount(){
 
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 

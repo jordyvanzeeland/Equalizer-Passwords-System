@@ -35,7 +35,7 @@ class ProjectEdit extends Component {
     var projectwpuser = event.target.wpuser.value;
     var projectwppass = event.target.wppass.value;
 
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}/update`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${this.props.match.params.id}/update`, { 
         method: 'PUT', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -62,7 +62,7 @@ class ProjectEdit extends Component {
   componentDidMount(){
 
     console.log(this.props.match);
-    fetch(`http://api.ldeq.local/project/${this.props.match.params.id}`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 

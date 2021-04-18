@@ -34,7 +34,7 @@ class Projects extends Component {
     var projectwpuser = event.target.wpuser.value;
     var projectwppass = event.target.wppass.value;
 
-    fetch(`http://api.ldeq.local/projects/new`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/projects/new`, { 
         method: 'POST', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -63,7 +63,7 @@ class Projects extends Component {
     var table = $('#DataTable').DataTable();
     var Row = $(event.target).closest('tr');
 
-    fetch(`http://api.ldeq.local/project/${projectID}/delete`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/project/${projectID}/delete`, { 
         method: 'DELETE', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -79,7 +79,7 @@ class Projects extends Component {
   }
 
   componentDidMount(){
-    fetch('http://api.ldeq.local/projects', { 
+    fetch('https://eqcpd-api.jordyvanzeeland.nl/projects', { 
         method: 'GET', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 

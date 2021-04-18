@@ -20,7 +20,7 @@ class SystemDetails extends Component {
 
     event.preventDefault();
 
-    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}/note/new`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${this.props.match.params.id}/note/new`, { 
         method: 'POST', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -41,7 +41,7 @@ class SystemDetails extends Component {
 
     event.preventDefault();
 
-    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}/note/${noteid}/delete`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${this.props.match.params.id}/note/${noteid}/delete`, { 
         method: 'DELETE', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -56,7 +56,7 @@ class SystemDetails extends Component {
   }
 
   componentDidMount(){
-    fetch(`http://api.ldeq.local/system/${this.props.match.params.id}`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${this.props.match.params.id}`, { 
         method: 'GET', 
         headers: new Headers({
             'Authorization': 'bearer' + localStorage.getItem('token'), 

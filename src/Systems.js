@@ -24,7 +24,7 @@ class Systems extends Component {
     var systemuser = event.target.systemuser.value;
     var systempass = event.target.systempass.value;
 
-    fetch(`http://api.ldeq.local/systems/new`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/systems/new`, { 
         method: 'POST', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -47,7 +47,7 @@ class Systems extends Component {
     var table = $('#DataTable').DataTable();
     var Row = $(event.target).closest('tr');
 
-    fetch(`http://api.ldeq.local/system/${systemid}/delete`, { 
+    fetch(`https://eqcpd-api.jordyvanzeeland.nl/system/${systemid}/delete`, { 
         method: 'DELETE', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
@@ -62,7 +62,7 @@ class Systems extends Component {
   }
 
   componentDidMount(){
-    fetch('http://api.ldeq.local/systems', { 
+    fetch('https://eqcpd-api.jordyvanzeeland.nl/systems', { 
         method: 'GET', 
         headers: new Headers({
           'Authorization': 'bearer' + localStorage.getItem('token'), 
