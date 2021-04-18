@@ -8,7 +8,7 @@ class Header extends Component {
 
   handleLogout(){
     Auth.logout()
-    this.props.history.replace('/login');
+    window.location.href = "/";
   }
 
   render() {
@@ -32,7 +32,7 @@ class Header extends Component {
             <ul>
                 <li><a href="/">Projecten</a></li>
                 <li><a href="/systems">Systemen</a></li>
-                <li style={{ float: 'right' }} onClick={this.handleLogout.bind(this)}>Uitloggen</li>
+                <li style={{ cursor: 'pointer', float: 'right' }} onClick={this.handleLogout.bind(this)}>Uitloggen</li>
             </ul>
             </div>
         </div>
